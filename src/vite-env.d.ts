@@ -1,0 +1,13 @@
+/// <reference types="vite/client" />
+
+export {};
+
+declare global {
+	interface ImportMetaEnv {
+		readonly VITE_ML_API_URL?: string;
+	}
+
+	interface ImportMeta {
+		readonly env: ImportMetaEnv;
+	}
+}
