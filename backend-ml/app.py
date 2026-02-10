@@ -29,7 +29,14 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
-app = FastAPI(title="BlueCarb ML Service", version="1.0.0")
+app = FastAPI(
+    title="BlueCarb ML Service",
+    version="1.0.0",
+    docs_url="/docs",
+    redoc_url="/redoc",
+    openapi_url="/openapi.json"
+)
+
 @app.get("/")
 def health_check():
     return {
