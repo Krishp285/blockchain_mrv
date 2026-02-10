@@ -30,6 +30,14 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 app = FastAPI(title="BlueCarb ML Service", version="1.0.0")
+@app.get("/")
+def health_check():
+    return {
+        "status": "ok",
+        "service": "BlueCarb ML Service",
+        "version": "1.0.0"
+    }
+
 
 origins_env = os.getenv("ALLOWED_ORIGINS", "*")
 origins = [origin.strip() for origin in origins_env.split(",") if origin.strip()]
